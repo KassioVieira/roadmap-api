@@ -21,6 +21,7 @@ Route.post("/authenticate", "AuthController.authenticate");
 
 Route.group(() => {
   Route.resource("roadmaps", "RoadmapController").apiOnly();
+  Route.get("roadmapbyauthor", "RoadmapController.showbyuser");
   Route.resource("steppers", "StepperController").apiOnly();
   Route.resource("meusroadmaps", "MeuroadmapController").apiOnly();
 }).middleware("auth");

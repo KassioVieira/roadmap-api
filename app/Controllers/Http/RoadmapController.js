@@ -26,8 +26,18 @@ class RoadmapController {
     return roadmaps;
   }
 
-  async showbyuser({ params }) {
-    const data = await Roadmap.query().with("user").fetch();
+  /**
+   * Show a list of all roadmaps by user.
+   * GET roadmaps
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+
+  async showbyuser({ auth }) {
+    const data = await Roadmap.query().where("user_id", auth.user.id).fetch();
     return data;
   }
 
