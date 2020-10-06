@@ -5,7 +5,7 @@ const Model = use("Model");
 
 class Roadmap extends Model {
   user() {
-    return this.belongsToMany("App/Models/User");
+    return this.hasOne("App/Models/User");
   }
 }
 
